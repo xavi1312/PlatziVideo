@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       <Header />
       <Search />
-      <Categories>
+      <Categories title="Mi lista">
         <Carousel>
           <CarouselItem />
           <CarouselItem />
