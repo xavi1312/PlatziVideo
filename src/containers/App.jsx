@@ -12,7 +12,6 @@ import "../assets/styles/App.scss";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:3000/initalState")
       .then(res => res.json())
