@@ -11,7 +11,8 @@ import CarouselItem from "../components/CarouselItem";
 import Footer from "../components/Footer";
 
 const App = () => {
-  const videos = useInitialState();
+  const apiURL = "http://localhost:3000/initalState";
+  const videos = useInitialState(apiURL);
 
   return (
     <div className="App">

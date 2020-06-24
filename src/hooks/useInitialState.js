@@ -1,9 +1,9 @@
 const { useState, useEffect } = require("react");
 
-const useInitialState = () => {
+const useInitialState = API => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/initalState")
+    fetch(API)
       .then(res => res.json())
       .then(data => {
         setVideos(data);
