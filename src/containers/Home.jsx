@@ -1,21 +1,18 @@
 import React from "react";
 // Utilities
 import "../assets/styles/App.scss";
-import useInitialState from "../hooks/useInitialState";
+import { connect } from "react-redux";
 // Components
 import Search from "../components/Search";
 import Categories from "../components/Categories";
 import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouselItem";
 
-const Home = () => {
-  const apiURL = "http://localhost:3000/initalState";
-  const videos = useInitialState(apiURL);
-
+const Home = ({ myList, trends, originals }) => {
   return (
     <>
       <Search />
-      {videos.length === undefined && videos.mylist.length > 0 && (
+      {myList.length > 0 && (
         <Categories title="Mi lista">
           <Carousel>
             <CarouselItem />
@@ -24,20 +21,28 @@ const Home = () => {
       )}
       <Categories title="Tendencias">
         <Carousel>
-          {videos.length === undefined &&
-            videos.trends.map(item => <CarouselItem key={item.id} {...item} />)}
+          {trends.map(item => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
       <Categories title="Originales de Platzi Video">
         <Carousel>
-          {videos.length === undefined &&
-            videos.originals.map(item => (
-              <CarouselItem key={item.id} {...item} />
-            ))}
+          {originals.map(item => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
     </>
   );
 };
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    myList: state.myList,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home);
