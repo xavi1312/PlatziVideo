@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // Utilities
 import "../assets/styles/App.scss";
 import useInitialState from "../hooks/useInitialState";
@@ -10,7 +10,7 @@ import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouselItem";
 import Footer from "../components/Footer";
 
-const App = () => {
+const Home = () => {
   const apiURL = "http://localhost:3000/initalState";
   const videos = useInitialState(apiURL);
 
@@ -44,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
