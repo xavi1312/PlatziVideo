@@ -1,14 +1,18 @@
 import React from "react";
 // Utilities
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 // Components
 import Home from "../containers/Home";
 import Login from "../containers/Login";
+import Register from "../containers/Register";
 
 const App = () => (
   <BrowserRouter>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/login" component={Login} />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+    </Switch>
   </BrowserRouter>
 );
 
