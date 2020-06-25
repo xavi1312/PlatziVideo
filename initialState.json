@@ -1,5 +1,7 @@
 {
   "initalState": {
+    "name": {},
+    "playing": {},
     "myList": [],
     "trends": [
       {
