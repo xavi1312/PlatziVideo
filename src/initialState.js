@@ -1,5 +1,5 @@
 const initialState = {
-  name: {},
+  user: {},
   playing: {},
   myList: [],
   trends: [
