@@ -1,0 +1,27 @@
+%scroll-bar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+    &:hover,
+    &:active {
+      background: #d4d4d4;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #ccc;
+    &:hover {
+      background: #b3b3b3;
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+      background-color: #999999;
+    }
+  }
+}
