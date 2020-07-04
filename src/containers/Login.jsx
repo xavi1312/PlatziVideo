@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // Utilities
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { loginRequest } from "../actions";
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginRequest } from '../actions';
 // Assets
-import "../assets/styles/components/Login.scss";
-import googleIcon from "../assets/static/google-icon.png";
-import twitterIcon from "../assets/static/twitter-icon.png";
+import '../assets/styles/components/Login.scss';
+import googleIcon from '../assets/static/google-icon.png';
+import twitterIcon from '../assets/static/twitter-icon.png';
 
 const Login = props => {
   const [form, setValues] = useState({
-    email: "",
+    email: '',
   });
   const handleInput = event => {
     setValues({
@@ -21,38 +21,38 @@ const Login = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.loginRequest(form);
-    props.history.push("/");
+    props.history.push('/');
   };
 
   return (
-    <section className="login">
-      <section className="login__container">
+    <section className='login'>
+      <section className='login__container'>
         <h2>Inicia sesión</h2>
-        <form className="login__container--form" onSubmit={handleSubmit}>
+        <form className='login__container--form' onSubmit={handleSubmit}>
           <input
             onChange={handleInput}
-            name="email"
-            className="input"
-            type="text"
-            placeholder="Correo"
+            name='email'
+            className='input'
+            type='text'
+            placeholder='Correo'
           />
           <input
             onChange={handleInput}
-            name="password"
-            className="input"
-            type="password"
-            placeholder="Contraseña"
+            name='password'
+            className='input'
+            type='password'
+            placeholder='Contraseña'
           />
-          <button className="button">Iniciar sesión</button>
-          <div className="login__container--remember-me">
+          <button className='button'>Iniciar sesión</button>
+          <div className='login__container--remember-me'>
             <label>
-              <input type="checkbox" id="cbox1" value="first_checkbox" />
+              <input type='checkbox' id='cbox1' value='first_checkbox' />
               Recuérdame
             </label>
-            <Link to="/">Olvidé mi contraseña</Link>
+            <Link to='/'>Olvidé mi contraseña</Link>
           </div>
         </form>
-        <section className="login__container--social-media">
+        <section className='login__container--social-media'>
           <div>
             <img src={googleIcon} /> Inicia sesión con Google
           </div>
@@ -60,8 +60,8 @@ const Login = props => {
             <img src={twitterIcon} /> Inicia sesión con Twitter
           </div>
         </section>
-        <p className="login__container--register">
-          No tienes ninguna cuenta <Link to="/register">Regístrate</Link>
+        <p className='login__container--register'>
+          No tienes ninguna cuenta <Link to='/register'>Regístrate</Link>
         </p>
       </section>
     </section>
