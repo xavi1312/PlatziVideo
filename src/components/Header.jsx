@@ -1,46 +1,49 @@
-import React from "react";
+import React from 'react';
 // Utilities
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import gravatar from "../utils/gravatar";
-import { logoutRequest } from "../actions";
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import gravatar from '../utils/gravatar';
+import { logoutRequest } from '../actions';
+import classNames from 'classnames';
 // Assets
-import "../assets/styles/components/Header.scss";
-import logo from "../assets/static/logo-platzi-video-BW2.png";
-import userIcon from "../assets/static/user-icon.png";
+import '../assets/styles/components/Header.scss';
+import logo from '../assets/static/logo-platzi-video-BW2.png';
+import userIcon from '../assets/static/user-icon.png';
 
 const Header = props => {
-  const { user } = props;
+  const { user, isLogin, isRegister } = props;
   const hasUser = Object.keys(user).length > 0;
+
   const handlerLogout = () => {
-    console.log(props);
     props.logoutRequest({});
   };
 
+  const headerClass = classNames('header', { isLogin, isRegister });
+
   return (
-    <header className="header">
-      <Link to="/">
-        <img className="header__img" src={logo} alt="Platzi Video" />
+    <header className={headerClass}>
+      <Link to='/'>
+        <img className='header__img' src={logo} alt='Platzi Video' />
       </Link>
-      <div className="header__menu">
-        <div className="header__menu--profile">
+      <div className='header__menu'>
+        <div className='header__menu--profile'>
           {hasUser ? (
             <img src={gravatar(user.email)} alt={user.email} />
           ) : (
-            <img src={userIcon} alt="User icon" />
+            <img src={userIcon} alt='User icon' />
           )}
-          <p>{hasUser ? user.email : "Perfil"}</p>
+          <p>{hasUser ? user.email : 'Perfil'}</p>
         </div>
         <ul>
           {hasUser ? (
             <li>
-              <a href="#logout" onClick={handlerLogout}>
+              <a href='#logout' onClick={handlerLogout}>
                 Cerrar Sesión
               </a>
             </li>
           ) : (
             <li>
-              <Link to="/login">Iniciar Sessión</Link>
+              <Link to='/login'>Iniciar Sessión</Link>
             </li>
           )}
         </ul>
